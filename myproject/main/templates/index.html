@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% load static %}
+{% block header_img %}
+    {% for country in countries %}
+        <img src="{% static "./img/fon.png" %}" alt="">
+    {% endfor %}
+{% endblock  %}
+{% block content %}
+    <main>
+        {% include "filter.html" with category=category %}
+        <div class="content container-fluid row">
+            {% for country in countries %}
+                <div class="country_card 
+                {% if country.id|divisibleby:2 %} country_card_2 {% else %} country_card_1 {% endif %} 
+                {% for item in country.category.all %}{{ item.slug }} {% endfor %}" 
+                data-categories="{% for item in country.category.all %}{{ item.slug }} {% endfor %}">
+                    {% if country.id|divisibleby:2 %}
+                        <div class="info_block">
+                            <div class="info">
+                                <div class="icons">
+                                    {% for item in country.category.all %}
+                                    <i class="fa-solid fa-{{item.icon_url}}"></i>
+                                    {% endfor %}
+                                </div>
+                                <p class="name">{{country.name}}</p>
+                                <p class="desc">
+                                    {{country.short_desc}}
+                                </p>
+                            </div>
+                            <div class="btn btn-primary" 
+                            onclick="openToursPage('{{ country.name }}')" 
+                            data-country-name="{{ country.name }}" 
+                            method="get">Выбрать</div>
+                        </div>
+                        <div class="img_block">   
+                            <img src="{% static "/img/country/" %}{{country.image_name}}.jpg" alt="">
+                        </div>
+                    {% else %}
+                        <div class="img_block">   
+                            <img src="{% static "/img/country/" %}{{country.image_name}}.jpg" alt="">
+                        </div>
+                        <div class="info_block">
+                            <div class="info">
+                                <div class="icons">
+                                    {% for item in country.category.all %}
+                                    <i class="fa-solid fa-{{item.icon_url}}"></i>
+                                    {% endfor %}
+                                </div>
+                                <p class="name">{{country.name}}</p>
+                                <p class="desc">{{country.short_desc}}</p>
+                            </div>
+                            <div class="btn btn-primary" 
+                            onclick="openToursPage('{{ country.name }}')" 
+                            data-country-name="{{ country.name }}" 
+                            method="get">Выбрать</div>
+                        </div>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </div>
+    </main>
+{% endblock  %}

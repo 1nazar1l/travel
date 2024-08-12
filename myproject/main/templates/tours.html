@@ -1,0 +1,110 @@
+{% extends "base.html" %}
+{% load static %}
+{% block header_img %}
+    {% for country in countries %}
+        <img src="{% static "/img/country/" %}{{country.image_name}}.jpg" alt="">
+    {% endfor %}
+{% endblock  %}
+{% block content %}
+    <main>
+        {% include "filter.html" with category=category %}
+        <div class="content container-fluid row">
+            <div class="tour_card_content col-lg-4">
+                <div class="tour_card">
+                    <div class="img_block mb-2">
+                        <img src="{% static "/img/tour/Mir_castle.jpg" %}" alt="">
+                    </div>
+                    <div class="info_block">
+                        <div class="name">Мирский замок</div>
+                        <div class="grade_block mb-3">
+                            <i class="fa-solid fa-star me-2" style="color: yellow; font-size: 25px;"></i>
+                            <div class="grade me-2" style="font-size: 20px;">4.5</div>
+                            <div class="views">(123 Просмотра)</div>
+                        </div>
+                        <div class="desc mb-2">
+                            Архитектурный комплекс включает в себя замок XVI—XX веков
+                        </div>
+                        <div class="categories d-flex ps-0 mb-3">
+                            <i class="fa-solid fa-fire me-2"></i>
+                            <i class="fa-solid fa-chess-rook me-2"></i>
+                            <i class="fa-solid fa-book me-2"></i>
+                        </div>
+                        <a class="btn btn-primary w-50" href={% url "tour" %} >Выбрать</a>
+                    </div>
+                </div>
+            </div>
+            <div class="tour_card_content col-lg-4">
+                <div class="tour_card">
+                    <div class="img_block mb-2">
+                        <img src="{% static "/img/tour/Mir_castle.jpg" %}" alt="">
+                    </div>
+                    <div class="info_block">
+                        <div class="name">Мирский замок</div>
+                        <div class="grade_block mb-3">
+                            <i class="fa-solid fa-star me-2" style="color: yellow; font-size: 25px;"></i>
+                            <div class="grade me-2" style="font-size: 20px;">4.5</div>
+                            <div class="views">(123 Просмотра)</div>
+                        </div>
+                        <div class="desc mb-2">
+                            Архитектурный комплекс включает в себя замок XVI—XX веков
+                        </div>
+                        <div class="categories d-flex ps-0 mb-3">
+                            <i class="fa-solid fa-fire me-2"></i>
+                            <i class="fa-solid fa-chess-rook me-2"></i>
+                            <i class="fa-solid fa-book me-2"></i>
+                        </div>
+                        <a class="btn btn-primary w-50" href="./tours.html" >Выбрать</a>
+                    </div>
+                </div>
+            </div>
+            <div class="tour_card_content col-lg-4">
+                <div class="tour_card">
+                    <div class="img_block mb-2">
+                        <img src="{% static "/img/tour/Mir_castle.jpg" %}" alt="">
+                    </div>
+                    <div class="info_block">
+                        <div class="name">Мирский замок</div>
+                        <div class="grade_block mb-3">
+                            <i class="fa-solid fa-star me-2" style="color: yellow; font-size: 25px;"></i>
+                            <div class="grade me-2" style="font-size: 20px;">4.5</div>
+                            <div class="views">(123 Просмотра)</div>
+                        </div>
+                        <div class="desc mb-2">
+                            Архитектурный комплекс включает в себя замок XVI—XX веков
+                        </div>
+                        <div class="categories d-flex ps-0 mb-3">
+                            <i class="fa-solid fa-fire me-2"></i>
+                            <i class="fa-solid fa-chess-rook me-2"></i>
+                            <i class="fa-solid fa-book me-2"></i>
+                        </div>
+                        <a class="btn btn-primary w-50" href="./tours.html" >Выбрать</a>
+                    </div>
+                </div>
+            </div>
+            <div class="tour_card_content col-lg-4">
+                <div class="tour_card">
+                    <div class="img_block mb-2">
+                        <img src="{% static "/img/tour/Mir_castle.jpg" %}" alt="">
+                    </div>
+                    <div class="info_block">
+                        <div class="name">Мирский замок</div>
+                        <div class="grade_block mb-3">
+                            <i class="fa-solid fa-star me-2" style="color: yellow; font-size: 25px;"></i>
+                            <div class="grade me-2" style="font-size: 20px;">4.5</div>
+                            <div class="views">(123 Просмотра)</div>
+                        </div>
+                        <div class="desc mb-2">
+                            Архитектурный комплекс включает в себя замок XVI—XX веков
+                        </div>
+                        <div class="categories d-flex ps-0 mb-3">
+                            <i class="fa-solid fa-fire me-2"></i>
+                            <i class="fa-solid fa-chess-rook me-2"></i>
+                            <i class="fa-solid fa-book me-2"></i>
+                        </div>
+                        <a class="btn btn-primary w-50" href="./tours.html" >Выбрать</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+{% endblock  %}
